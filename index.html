@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vokabeltrainer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-screen" id="gameScreen">
+            <div class="card">
+                <div class="header">
+                    <h1>Vokabeltrainer</h1>
+                </div>
+
+                <p class="instruction" id="instruction">Übersetze das folgende Wort ins Englische:</p>
+                <div class="word-container">
+                    <div id="wordDisplay" class="word"></div>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="userInput" placeholder="Übersetzung" autocomplete="off">
+                </div>
+                <div class="button-container">
+                    <button class="btn next" onclick="nextWord()">Nächstes Wort</button>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <span>Vokabeln gesamt:</span>
+                        <span id="totalWords">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Fortschritt:</span>
+                        <span id="progressCount">0/0 Wörter dieser Runde</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Versuche:</span>
+                        <span id="totalAttempts">0</span>
+                    </div>
+                    <div class="stat-bars">
+                        <div class="bar-container">
+                            <div class="bar-label">Richtig:</div>
+                            <div class="progress-bar">
+                                <div id="correctBar" class="bar correct"></div>
+                                <span id="correctCount">0</span>
+                            </div>
+                        </div>
+                        <div class="bar-container">
+                            <div class="bar-label">Falsch:</div>
+                            <div class="progress-bar">
+                                <div id="wrongBar" class="bar wrong"></div>
+                                <span id="wrongCount">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-buttons">
+                    <button id="switchLanguage" class="btn control-btn" onclick="switchLanguageMode()">DE-EN</button>
+                    <button id="exportStats" class="btn control-btn" onclick="exportVocabulary()">Save</button>
+                    <button id="resetStats" class="btn control-btn" onclick="resetStatistics()">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="correctPopup" class="popup correct-popup">
+        <div class="popup-content">
+            <h3>Richtig!</h3>
+            <p id="correctWord" class="word-display"></p>
+            <p id="pronunciation" class="pronunciation"></p>
+        </div>
+    </div>
+
+    <div id="wrongPopup" class="popup wrong-popup">
+        <div class="popup-content">
+            <h3>Falsch</h3>
+            <p id="wrongWord" class="word-display"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
