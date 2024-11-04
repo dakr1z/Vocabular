@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vokabeltrainer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1>Vokabeltrainer</h1>
+                <button id="switchLanguage" class="btn switch" onclick="switchLanguageMode()">
+                    🔄 DE → EN
+                </button>
+            </div>
+            
+            <!-- Statistik-Bereich -->
+            <div class="stats">
+                <div class="stat-item">
+                    <span>Vokabeln gesamt:</span>
+                    <span id="totalWords">0</span>
+                </div>
+                <div class="stat-item">
+                    <span>Fortschritt:</span>
+                    <span id="progressCount">0/0 Wörter dieser Runde</span>
+                </div>
+                <div class="stat-item">
+                    <span>Versuche:</span>
+                    <span id="totalAttempts">0</span>
+                </div>
+                <div class="stat-bars">
+                    <div class="bar-container">
+                        <div class="bar-label">Richtig:</div>
+                        <div class="progress-bar">
+                            <div id="correctBar" class="bar correct"></div>
+                            <span id="correctCount">0</span>
+                        </div>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar-label">Falsch:</div>
+                        <div class="progress-bar">
+                            <div id="wrongBar" class="bar wrong"></div>
+                            <span id="wrongCount">0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-buttons">
+                    <button id="resetStats" class="btn reset" onclick="resetStatistics()">
+                        🔄 Statistik zurücksetzen
+                    </button>
+                    <button id="exportStats" class="btn export" onclick="exportVocabulary()">
+                        💾 Fortschritt speichern
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hauptbereich -->
+            <p class="instruction" id="instruction">Übersetze das folgende Wort ins Englische:</p>
+            <div class="word-container">
+                <div id="wordDisplay" class="word"></div>
+            </div>
+            <div class="input-container">
+                <input type="text" id="userInput" placeholder="Übersetzung" autocomplete="off">
+            </div>
+            <div class="button-container">
+                <button class="btn check" onclick="checkAnswer()">Prüfen</button>
+                <button class="btn next" onclick="nextWord()">Nächstes Wort</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup für richtige Antworten -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h3>Richtig! 🎉</h3>
+            <p id="popupContent"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
